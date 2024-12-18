@@ -1,0 +1,64 @@
+# Configurações de ambiente
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Diretórios de build
+bin/
+obj/
+out/
+
+# Diretórios de publicação
+wwwroot/
+dist/
+
+# Arquivos gerados pelo Blazor
+wwwroot/css/app.css
+wwwroot/css/app.css.map
+wwwroot/css/bootstrap/
+wwwroot/_framework/
+
+# Arquivos de log e cache
+*.log
+*.cache
+*.pid
+*.pdb
+
+# Dependências locais
+node_modules/
+*.npmrc
+npm-debug.log*
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.swp
+*.sw~
+
+# Arquivos de lock e pacotes
+project.lock.json
+project.fragment.lock.json
+*.nuget.props
+*.nuget.targets
+*.csproj.user
+
+# Arquivos gerados por serviços de cloud
+*.PublishProfiles/
+
+# Arquivos secretos (adicione chaves secretas ao .gitignore manualmente)
+secrets.json
+
+# Logs do sistema
+*.log
+*.gitattributes
+*.gitignore~
