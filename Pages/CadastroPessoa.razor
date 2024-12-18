@@ -1,0 +1,83 @@
+@page "/cadastro-pessoa"
+@using System.ComponentModel.DataAnnotations
+@using System.Collections.Generic
+
+<h3>Cadastro de Pessoa</h3>
+
+
+<EditForm Model="@pessoa" OnValidSubmit="@SalvarPessoa">
+
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="nome">Nome:</label>
+        <InputText id="nome" class="form-control" @bind-Value="pessoa.Nome" />
+
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <InputText id="email" class="form-control" @bind-Value="pessoa.Email" />
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="idade">Idade:</label>
+        <InputNumber id="idade" class="form-control" @bind-Value="pessoa.Idade" />
+    </div>
+
+    <div class="form-group">
+        <label for="telefone">Telefone:</label>
+        <InputText id="telefone" class="form-control" @bind-Value="pessoa.Telefone" />
+    </div>
+
+    <button type="submit" class="button btn-primary ">SALVAR</button>
+</EditForm>
+
+
+@if (pessoasCadastradas.Any())
+{
+    <h4>Pessoas Cadastradas</h4>
+    <table class="table">
+    <tHead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Idade</th>
+            <th>Telefone</th>
+        </tr>
+    </tHead>
+    <tBody>
+        @foreach (var p in pessoasCadastradas)
+            {
+                <tr>
+                    <td>@p.Nome</td>
+                    <td>@p.Email</td>
+                    <td>@p.Idade</td>
+                    <td>@p.Telefone</td>
+                </tr>
+            }
+        </tBody>
+    </table>
+}
+
+@code {
+    private Pessoa pessoa = new Pessoa();
+    private List<Pessoa> pessoasCadastradas = new List<Pessoa>();
+
+    private void SalvarPessoa()
+    {
+        pessoasCadastradas.Add(new Pessoa
+            {
+                Nome = pessoa.Nome,
+                Email = pessoa.Email,
+                Idade = pessoa.Idade,
+                Telefone = pessoa.Telefone,
+            });
+
+        // Limpa o formulário após salvar
+        pessoa = new Pessoa();
+    }
+}
